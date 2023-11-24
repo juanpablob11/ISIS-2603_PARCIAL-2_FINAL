@@ -1,0 +1,42 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-2">
+
+    </div>
+    <div class="col-4 m-2 p-2">
+      <div class="card text-white bg-dark mb-3">
+        <div class="card-body">
+          <table class="table table-dark table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Plataforma</th>
+                <th scope="col">Lanzamiento</th>
+                <th scope="col">Duracion (h)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let curso of cursos">
+                <td>{{ curso.id }}</td>
+                <td (click)="onSelected(curso)">{{ curso.title }}</td>
+                <td>{{ curso.platform }}</td>
+                <td>{{ curso.launch_year }}</td>
+                <td>{{ curso.duration_hours }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-4 m-2 p-2">
+      <div *ngIf="selected">
+        <app-cursos-detailed [cursoDetail]="selectedCurso"></app-cursos-detailed>
+       </div>
+    </div>
+    <div class="col-2">
+      
+    </div>
+  </div>
+</div>
